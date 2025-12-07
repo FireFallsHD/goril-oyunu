@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.game-container {
+    position: relative;
+    background: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+#gameCanvas {
+    display: block;
+    background: linear-gradient(to bottom, #87CEEB 0%, #87CEEB 50%, #90EE90 50%, #90EE90 100%);
+}
+
+.start-screen, .game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.start-screen h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.start-screen p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #666;
+}
+
+.high-score-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #667eea;
+    margin-top: 15px;
+}
+
+.game-over h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #e74c3c;
+}
+
+.game-over p {
+    font-size: 24px;
+    margin: 15px 0;
+    color: #333;
+}
+
+#finalScore {
+    font-weight: bold;
+    color: #667eea;
+    font-size: 32px;
+}
+
+button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-weight: bold;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Mobil Kontroller - Sadece mobilde görünür */
+.mobile-controls {
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 20px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.control-btn {
+    pointer-events: auto;
+    background: rgba(102, 126, 234, 0.9);
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    font-size: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    min-width: 120px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+    background: rgba(102, 126, 234, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.jump-btn {
+    background: rgba(46, 204, 113, 0.9);
+}
+
+.jump-btn:active {
+    background: rgba(46, 204, 113, 1);
+}
+
+.duck-btn {
+    background: rgba(241, 196, 15, 0.9);
+}
+
+.duck-btn:active {
+    background: rgba(241, 196, 15, 1);
+}
+
+/* Mobil cihazlar için */
+@media (max-width: 768px) {
+    .mobile-controls {
+        display: flex;
+    }
+    
+    .game-container {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+    }
+    
+    #gameCanvas {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .start-screen, .game-over {
+        width: 90%;
+        max-width: 400px;
+        padding: 30px 20px;
+    }
+    
+    .start-screen h1 {
+        font-size: 36px;
+    }
+    
+    .start-screen p {
+        font-size: 16px;
+    }
+}
+
+/* Çok küçük ekranlar için */
+@media (max-width: 480px) {
+    .control-btn {
+        padding: 15px 30px;
+        font-size: 18px;
+        min-width: 100px;
+    }
+    
+    .mobile-controls {
+        bottom: 15px;
+        gap: 15px;
+    }
+}
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goril Oyunu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <!-- Mobil Kontroller -->
+        <div class="mobile-controls">
+            <button id="jumpBtn" class="control-btn jump-btn">⬆️ Zıpla</button>
+            <button id="duckBtn" class="control-btn duck-btn">⬇️ Eğil</button>
+        </div>
+        <div id="gameOver" class="game-over hidden">
+            <h2>Oyun Bitti!</h2>
+            <p>Skor: <span id="finalScore">0</span></p>
+            <p>En Yüksek Skor: <span id="highScoreFinal">0</span></p>
+            <button id="restartBtn">Yeniden Başla</button>
+        </div>
+        <div id="startScreen" class="start-screen">
+            <h1>🦍 Goril Oyunu</h1>
+            <p>Boşluk tuşu veya yukarı ok ile zıpla!</p>
+            <p>S veya aşağı ok ile eğil!</p>
+            <p>Engellerden kaçın!</p>
+            <p class="high-score-text">En Yüksek Skor: <span id="highScoreDisplay">0</span></p>
+            <button id="startBtn">Başla</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
+
