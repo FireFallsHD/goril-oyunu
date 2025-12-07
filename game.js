@@ -33,8 +33,8 @@ window.addEventListener('resize', resizeCanvas);
 // Oyun değişkenleri
 let gameState = 'start'; // 'start', 'playing', 'gameOver'
 let score = 0;
-// Mobilde biraz daha yavaş, masaüstünde daha hızlı
-let gameSpeed = window.innerWidth <= 768 ? 3.8 : 4;
+// Mobil ve masaüstü aynı hız
+let gameSpeed = 4;
 let gravity = 0.8;
 let highScore = parseInt(localStorage.getItem('gorilHighScore')) || 0;
 
@@ -361,10 +361,9 @@ function gameLoop() {
         // Skor artır
         score += 0.1;
         
-        // Oyun hızını artır (mobilde maksimum hız daha düşük)
+        // Oyun hızını artır
         if (score % 100 === 0 && score > 0) {
-            const maxSpeed = window.innerWidth <= 768 ? 9 : 10;
-            gameSpeed = Math.min(gameSpeed + 0.08, maxSpeed);
+            gameSpeed = Math.min(gameSpeed + 0.08, 10);
         }
         
         // Skor gösterimi
@@ -482,7 +481,7 @@ document.getElementById('startBtn').addEventListener('click', () => {
     gameState = 'playing';
     document.getElementById('startScreen').classList.add('hidden');
     score = 0;
-    gameSpeed = window.innerWidth <= 768 ? 3.8 : 4;
+    gameSpeed = 4;
     obstacles = [];
     flyingObstacles = [];
     // Goril pozisyonunu yeniden ayarla
@@ -499,7 +498,7 @@ document.getElementById('restartBtn').addEventListener('click', () => {
     gameState = 'playing';
     document.getElementById('gameOver').classList.add('hidden');
     score = 0;
-    gameSpeed = window.innerWidth <= 768 ? 3.8 : 4;
+    gameSpeed = 4;
     obstacles = [];
     flyingObstacles = [];
     // Goril pozisyonunu yeniden ayarla
